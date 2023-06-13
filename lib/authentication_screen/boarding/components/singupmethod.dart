@@ -1,3 +1,4 @@
+import 'package:ecommerse_app_persional/routes/translate/app_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -21,11 +22,13 @@ class signUpMethod extends StatelessWidget {
         onTap: () => AppRoutes.navigateToNextScreen(
             //navigate to signup screen
             context,
-            AppRoutes.onSignUpScreen),
-        child: const Center(
+            AppRoutes.onSignUpScreen,
+            email: "no email"),
+        child: Center(
             child: Text(
-          'Sign Up Free',
-          style: TextStyle(
+          AppLocalizations.of(context).getTranslate('signup_text') ??
+              "trnalation error",
+          style: const TextStyle(
               fontFamily: "Gotham",
               color: Colors.white,
               fontSize: 18,

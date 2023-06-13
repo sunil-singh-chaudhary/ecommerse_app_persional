@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1091165278235",
+    "project_id": "fbconnectfire",
+    "storage_bucket": "fbconnectfire.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091165278235:android:515b18bde84bc0429ae8be",
+        "android_client_info": {
+          "package_name": "com.example.ecommerse_app_persional"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091165278235-9g4jmjtb1er7kl8c9i3sb4migp35hm79.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiKCyiMgedj7dr-Yc2Ezh4ntYRIVudCMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091165278235-9g4jmjtb1er7kl8c9i3sb4migp35hm79.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
