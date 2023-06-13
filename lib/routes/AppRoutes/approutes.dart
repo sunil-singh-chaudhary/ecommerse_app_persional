@@ -1,17 +1,18 @@
-import 'package:ecommerse_app_persional/authentication_screen/boarding/splashScreen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../../authentication_screen/boarding/onboardingScreen.dart';
-import '../../authentication_screen/boarding/signupscreen.dart';
-import '../../authentication_screen/screens/loginscreen.dart';
+import '../../authentication_screen/screens/LoginScreen.dart';
+import '../../authentication_screen/screens/dashboardscreen.dart';
+import '../../authentication_screen/screens/onboardingScreen.dart';
+import '../../authentication_screen/screens/signupscreen.dart';
+import '../../authentication_screen/screens/splashScreen.dart';
 
 class AppRoutes {
   // Route names
   static const String splashscreen = '/';
+  static const String onloginScreen = '/onloginscreen';
   static const String onboardingScreen = '/myRoute';
   static const String onSignUpScreen = '/signUp';
-  static const String onLoginsuccess = '/LoginScreen';
+  static const String ondashboardscreem = '/Dashboardscreen';
 
   // Generate route function
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -20,13 +21,15 @@ class AppRoutes {
     switch (settings.name) {
       case splashscreen:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
+      case onloginScreen:
+        return MaterialPageRoute(builder: (_) => LoginScreen());
       case onboardingScreen:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
       case onSignUpScreen:
-        return MaterialPageRoute(builder: (_) => const OnSignUpScreen());
-      case onLoginsuccess:
+        return MaterialPageRoute(builder: (_) => OnSignUpScreen());
+      case ondashboardscreem:
         return MaterialPageRoute(
-            builder: (_) => LoginScreen(email: args as String));
+            builder: (_) => DashBoardScreen(email: args as String));
       default:
         return null;
     }

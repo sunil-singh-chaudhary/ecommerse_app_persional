@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
         ],
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          appBarTheme: AppBarTheme(color: Colors.blueAccent),
           useMaterial3: true,
         ),
         // home: const Spl(),

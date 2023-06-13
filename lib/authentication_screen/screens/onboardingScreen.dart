@@ -1,11 +1,12 @@
-import 'package:ecommerse_app_persional/authentication_screen/boarding/components/applebutton.dart';
-import 'package:ecommerse_app_persional/authentication_screen/boarding/components/facebookbutton.dart';
-import 'package:ecommerse_app_persional/authentication_screen/boarding/components/googlebutton.dart';
-import 'package:ecommerse_app_persional/routes/translate/app_localization.dart';
+import 'package:ecommerse_app_persional/routes/AppRoutes/approutes.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import 'components/singupmethod.dart';
+import '../../routes/translate/app_localization.dart';
+import '../boarding/components/applebutton.dart';
+import '../boarding/components/facebookbutton.dart';
+import '../boarding/components/googlebutton.dart';
+import '../boarding/components/singupmethod.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -64,7 +65,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 height: 1.h,
               ),
               InkWell(
-                onTap: () => print("click login"),
+                onTap: () => AppRoutes.navigateToNextScreen(
+                    context, AppRoutes.onloginScreen,
+                    email: ''),
                 child: Text(
                   AppLocalizations.of(context).getTranslate('login') ??
                       "ERror login",

@@ -1,19 +1,21 @@
+import 'package:ecommerse_app_persional/authentication_screen/boarding/components/googlebutton.dart';
+import 'package:ecommerse_app_persional/routes/AppRoutes/approutes.dart';
 import 'package:flutter/material.dart';
 
+import '../../Utils/auth.dart';
 import '../../Utils/snackbar.dart';
-import '../../routes/AppRoutes/approutes.dart';
-import '../boarding/components/googlebutton.dart';
 
-class LoginScreen extends StatelessWidget {
+class OnSignUpScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Login Account',
+          'Create Account',
           style: TextStyle(color: Colors.white),
         ),
         iconTheme: const IconThemeData(
@@ -42,19 +44,27 @@ class LoginScreen extends StatelessWidget {
               obscureText: true,
             ),
             const SizedBox(height: 16.0),
+            TextField(
+              controller: nameController,
+              decoration: const InputDecoration(
+                labelText: 'Name',
+                border: OutlineInputBorder(),
+              ),
+            ),
             const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () async {
                 String email = emailController.text;
                 String password = passwordController.text;
+                String name = nameController.text;
                 if (email.isEmpty) {
                   return;
                 }
                 if (password.isEmpty) {
                   return;
                 }
-                // Perform account login logic here
-                final user = await auth.LoginUsingEmail(
+                // Perform account creation logic here
+                final user = await auth.registerUser(
                     emailAddress: email, password: password);
                 user.fold(
                     (l) =>
@@ -69,8 +79,9 @@ class LoginScreen extends StatelessWidget {
                 // Clear the text fields
                 emailController.clear();
                 passwordController.clear();
+                nameController.clear();
               },
-              child: const Text('Login'),
+              child: const Text('Create Account'),
             ),
           ],
         ),

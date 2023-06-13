@@ -109,7 +109,7 @@ class Auth {
     return credential.user != null ? true : false;
   }
 
-  Future<User?> googleButtonSignIn() async {
+  Future<User> googleButtonSignIn() async {
     try {
       GoogleSignInAccount? googleSignInAccount = await _googleSignIn.signIn();
 
@@ -122,19 +122,19 @@ class Auth {
       );
       user = await _auth.signInWithCredential(credential);
       savetoSignInPref(user.user!.email!);
-      return user.user;
+      return user.user!;
     } catch (error) {
       if (kDebugMode) {
         print(error);
       }
     }
-    return user.user;
+    return user.user!;
   }
 
-  void savetoSignInPref(String emailsave) async {
+  void savetoSignInPref(String? emailsave) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('isLogin', true);
-    await prefs.setString('isemail', emailsave);
+    await prefs.setString('isemail', emailsave!);
     print('save');
   }
 
